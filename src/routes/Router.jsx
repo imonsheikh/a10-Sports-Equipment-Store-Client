@@ -7,6 +7,8 @@ import Home from "../pages/Home";
 import AllEquipment from "../pages/AllEquipment";
 import AddEquipment from "../pages/AddEquipment";
 import ErrorPage from "../pages/ErrorPage";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
   
 export const router = createBrowserRouter([
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
         {
             path: '/addEquipment',
             element: <AddEquipment></AddEquipment>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
+        },
+        {
+          path: '/register',
+          element: <Register></Register>
         }
       ]
     },

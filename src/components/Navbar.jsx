@@ -35,8 +35,8 @@ const Navbar = () => {
              {links}
             </ul>
           </div>
-          <img className='w-12 h-12' src={logo} alt="" />
-          <a className="btn btn-ghost text-xl">Sports</a>
+          <img className='w-12 h-12 border-4 p-1 rounded-full border-sky-500' src={logo} alt="" />
+          <a className="btn btn-ghost text-2xl font-bold">Sports King</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -44,8 +44,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn bg-green-400 text-white">Register</Link>
-          <Link className="btn btn-primary">Login</Link>
+          <Link to='/register' className="btn bg-green-400 text-white">Register</Link>
+          <Link to='/login' className="btn btn-primary">Login</Link>
         </div>
       </div>
     );
