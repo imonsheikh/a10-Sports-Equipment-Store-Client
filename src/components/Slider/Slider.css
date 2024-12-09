@@ -1,0 +1,29 @@
+.slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 10px;
+
+}
+
+.slide1{
+background-image: url('https://img.freepik.com/free-photo/sports-tools_53876-138077.jpg?t=st=1733758166~exp=1733761766~hmac=6eade12a566b9706eacf9b3e2a8c9228a6555e476d179b62c8785781511da5f0&w=1380');
+background-size: cover;
+}
+.slide2{
+background-image: url('https://img.freepik.com/free-photo/front-view-athletic-man-holding-basketball_23-2148398791.jpg?t=st=1733758270~exp=1733761870~hmac=cb9607d4bd3b6497f5a735c1169c0647bbd1e854018fe3f7799414937244347f&w=1380');
+background-size: cover;
+}
+.slide3{
+background-image: url('https://readingielts.b-cdn.net/wp-content/uploads/2021/03/IELTS-Speaking-Part-1-Topic-Sport.png');
+background-size: cover;
+}
+.slide4{
+background-image: url('https://media.istockphoto.com/id/695294506/photo/scoring-a-goal.jpg?s=612x612&w=0&k=20&c=EGIyT1x-LN4ppt1Gs-Q0veSR7P_sjgWSIRjk1gfvnGA=');
+background-size: cover;
+}
