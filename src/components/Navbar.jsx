@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo2.png'
 import { AuthContext } from '../provider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
 
@@ -53,7 +54,7 @@ const Navbar = () => {
             user?
             (   
                 <div className='flex gap-4'>
-                  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="" />
+                 {user?.photoURL?  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <FaUserCircle className='' />}
                   <Link onClick={handleLogout} className='btn btn-success text-white'>Logout</Link>
                 </div>
             ) : 

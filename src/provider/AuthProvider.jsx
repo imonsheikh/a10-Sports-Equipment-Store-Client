@@ -17,6 +17,7 @@ const AuthProvider = ({children}) => {
 
     //handleGoogleLogin
     const handleGoogleLogin = () => {
+       setLoading(true)
        return signInWithPopup(auth, googleProvider)
     }
 
@@ -67,9 +68,9 @@ const AuthProvider = ({children}) => {
             // setLoading(false)
             console.log(currentUser);
            if(currentUser){
-            setUser(currentUser)
-
-           }else{
+               setUser(currentUser)
+               
+            }else{
             setUser(null)
            }
            setLoading(false)

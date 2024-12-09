@@ -4,6 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -68,7 +69,12 @@ const Register = () => {
         updateUserProfile({ displayName: fullName, photoURL: photoURL })
           .then(() => {
             console.log(userReg);
-            e.target.reset()
+            e.target.reset() 
+            Swal.fire({
+                icon: "success",
+                title: "Register Successful!",
+                text: "Enjoy 🙋 ",
+              });
             navigate("/");
           })
           .catch((err) => {
