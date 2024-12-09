@@ -6,7 +6,7 @@ const Navbar = () => {
 
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/allEquipment'>All Equipment</NavLink></li>
+    <li><NavLink to='/allEquipments'>All Equipment</NavLink></li>
     <li><NavLink to='/addEquipment'>Add Equipment</NavLink></li>
     <li><NavLink to='/extra'>expra</NavLink></li>
    </>
@@ -44,7 +44,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn bg-green-400">Register</Link>
+          <Link className="btn bg-green-400 text-white">Register</Link>
           <Link className="btn btn-primary">Login</Link>
         </div>
       </div>

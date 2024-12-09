@@ -20,11 +20,11 @@ export const router = createBrowserRouter([
             element: <Home></Home>
         },
         {
-            path: '/allEquipment',
+            path: '/allEquipments',
             element: <AllEquipment></AllEquipment>
         },
         {
-            path: 'addEquipment',
+            path: '/addEquipment',
             element: <AddEquipment></AddEquipment>
         }
       ]
