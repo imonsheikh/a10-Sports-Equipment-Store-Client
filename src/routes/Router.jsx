@@ -9,6 +9,7 @@ import AddEquipment from "../pages/AddEquipment";
 import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
   
 export const router = createBrowserRouter([
@@ -23,11 +24,11 @@ export const router = createBrowserRouter([
         },
         {
             path: '/allEquipments',
-            element: <AllEquipment></AllEquipment>
+            element: <PrivateRoute><AllEquipment></AllEquipment></PrivateRoute>
         },
         {
             path: '/addEquipment',
-            element: <AddEquipment></AddEquipment>
+            element: <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
         },
         {
           path: '/login',

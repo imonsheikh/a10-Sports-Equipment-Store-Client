@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 // import { AuthContext } from '../../provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../provider/AuthProvider';
 import logo2 from '../assets/logo2.png'
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -24,7 +25,11 @@ const Login = () => {
         handleGoogleLogin()
         .then(res => {
             if(res.user){
-                // sweetAleart() 
+                Swal.fire({
+                    icon: "success",
+                    title: "Login Successful!",
+                    text: "welcome 🙂 ",
+                  });
                 navigate(from,{replace:true})
             }
             console.log(res)
@@ -70,6 +75,11 @@ const Login = () => {
       // console.log(result.user);
        const user = result.user
        setUser(user)
+       Swal.fire({
+        icon: "success",
+        title: "Login Successful!",
+        text: "welcome 🙂 ",
+      });
        navigate(location?.state ? location.state : '/')
       })
       .catch(error => {
