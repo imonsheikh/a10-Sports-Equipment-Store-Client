@@ -1,7 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddEquipment = () => {
-  const [formData, setFormData] = useState();
+  const { user } = useContext(AuthContext);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedItem, setSelectedItem] = useState("");
+
+  const categoryItems = {
+    Cricket: ["Cricket Bat", "Cricket Ball", "Leg Pads", "Batting Helmet"],
+    Football: [
+      "Football",
+      "Goalkeeper Gloves",
+      "Football Cleats",
+      "Shin Guards",
+    ],
+    Basketball: ["Basketball", "Basketball Hoop", "Basketball Shoes"],
+    Tennis: ["Tennis Racket", "Tennis Ball", "Tennis Shoes"],
+    Badminton: ["Badminton Racket", "Shuttlecock", "Badminton Net"],
+  };
+
+  //category handler
+  const handleCategory = (e) => {
+    setSelectedCategory(e.target.value);
+    // setSelectedCategory('')
+  };
+  //item handler
+  const handleItem = (e) => {
+    setSelectedItem(e.target.value);
+  };
 
   const handleAddEquipment = (e) => {
     e.preventDefault();
@@ -38,21 +64,17 @@ const AddEquipment = () => {
       stockStatus,
     };
 
-    fetch('http://localhost:5050/allEquipments',{
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(equipInfo)
+    fetch("http://localhost:5050/allEquipments", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(equipInfo),
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log('equimment data paisi', data);
-        
-    })
-
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("equimment data paisi", data);
+      });
   };
 
   return (
@@ -76,8 +98,6 @@ const AddEquipment = () => {
               <input
                 type="url"
                 name="image"
-                //   value={formData.image}
-                //   onChange={handleChange}
                 placeholder="Enter image URL"
                 required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
@@ -89,15 +109,23 @@ const AddEquipment = () => {
               <label className="block text-gray-700 font-medium mb-2">
                 Item Name
               </label>
-              <input
-                type="text"
-                name="itemName"
-                //   value={formData.itemName}
-                //   onChange={handleChange}
-                placeholder="Enter item name"
-                required
-                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
-              />
+             <select 
+             value={selectedItem}
+             onChange={handleItem}
+             className="border p-2 w-full"
+             name="" 
+             id="">
+              <option value='' disabled>
+                select Item
+              </option>
+              {selectedCategory && 
+               categoryItems[selectedCategory].map(item => (
+                 <option
+                 key={item}
+                 value={item}
+                 >{item}</option>
+               ))}
+             </select>
             </div>
 
             {/* Category Name */}
@@ -105,15 +133,24 @@ const AddEquipment = () => {
               <label className="block text-gray-700 font-medium mb-2">
                 Category Name
               </label>
-              <input
-                type="text"
+              <select
+                value={selectedCategory}
+                onChange={handleCategory}
                 name="categoryName"
-                //   value={formData.categoryName}
-                //   onChange={handleChange}
-                placeholder="Enter category name"
-                required
-                className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
-              />
+                className="border p-2 w-full"
+              >
+                <option value="" disabled>
+                  Select Category
+                </option>
+                {Object.keys(categoryItems).map((category) => (
+                  <option 
+                  // key={category} 
+                  // value={category}
+                  >
+                    {category}
+                  </option>
+                ))}
+              </select>
             </div>
 
             {/* Price */}
@@ -124,8 +161,6 @@ const AddEquipment = () => {
               <input
                 type="number"
                 name="price"
-                //   value={formData.price}
-                //   onChange={handleChange}
                 placeholder="Enter price"
                 required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
@@ -142,8 +177,6 @@ const AddEquipment = () => {
               </label>
               <textarea
                 name="description"
-                //   value={formData.description}
-                //   onChange={handleChange}
                 placeholder="Enter product description"
                 rows="3"
                 required
@@ -159,8 +192,6 @@ const AddEquipment = () => {
               <input
                 type="number"
                 name="rating"
-                //   value={formData.rating}
-                //   onChange={handleChange}
                 placeholder="Enter rating (0-5)"
                 step="0.1"
                 min="0"
@@ -177,21 +208,11 @@ const AddEquipment = () => {
               </label>
               <div className="flex items-center space-x-4">
                 <label className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    name="extraGrip"
-                    //   checked={formData.customization.extraGrip}
-                    //   onChange={handleChange}
-                  />
+                  <input type="checkbox" name="extraGrip" />
                   <span>Extra Grip</span>
                 </label>
                 <label className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    name="hitPaper"
-                    //   checked={formData.customization.hitPaper}
-                    //   onChange={handleChange}
-                  />
+                  <input type="checkbox" name="hitPaper" />
                   <span>Hit Paper</span>
                 </label>
               </div>
@@ -205,9 +226,8 @@ const AddEquipment = () => {
               <input
                 type="number"
                 name="stockStatus"
-                //   value={formData.stockStatus}
-                //   onChange={handleChange}
                 placeholder="Enter available quantity"
+                readOnly
                 required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
               />
@@ -240,7 +260,7 @@ const AddEquipment = () => {
                 </label>
                 <input
                   type="email"
-                  // value={userEmail}
+                  value={user?.email}
                   readOnly
                   className="w-full px-4 py-2 border rounded-md bg-gray-100 cursor-not-allowed"
                 />
@@ -251,7 +271,7 @@ const AddEquipment = () => {
                 </label>
                 <input
                   type="text"
-                  // value={userName}
+                  value={user?.displayName}
                   readOnly
                   className="w-full px-4 py-2 border rounded-md bg-gray-100 cursor-not-allowed"
                 />

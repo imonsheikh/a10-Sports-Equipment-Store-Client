@@ -2,7 +2,14 @@ import React from 'react';
 
 const Pricing = () => {
     return (
-        <ul class="grid gap-6 mt-6 md:gap-12 md:grid-cols-3 p-5">
+<div>
+<div>
+        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 text-5xl font-black">
+          Services
+        </h1>
+        <p>The precise definition of what differentiates a sport from other leisure activities varies between sources. </p>
+      </div>
+<ul class="grid gap-6 mt-6 md:gap-12 md:grid-cols-3 p-5">
         <li class="p-6 shadow-xl rounded-xl ring-1 ring-black/5 shadow-black/10">
             <h3 class="font-bold tracking-tight text-violet-600">Starter</h3>
             <p class="mt-6 text-4xl font-bold tracking-tighter">$5</p>
@@ -127,6 +134,7 @@ const Pricing = () => {
                 days for free</a>
         </li>
     </ul>
+</div>
     );
 };
 
