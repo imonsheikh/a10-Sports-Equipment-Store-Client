@@ -1,10 +1,14 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddEquipment = () => {
   const { user } = useContext(AuthContext);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedItem, setSelectedItem] = useState("");
+  const [availableQuantity,setAvailableQuantity] = useState(1000)
+  const [gripIsChecked, setGripIsChecked] = useState(false)
+  const [hitPaperIsChecked, setHitPaperIsChecked] = useState(false)
 
   const categoryItems = {
     Cricket: ["Cricket Bat", "Cricket Ball", "Leg Pads", "Batting Helmet"],
@@ -39,6 +43,8 @@ const AddEquipment = () => {
     const price = form.price.value;
     const description = form.description.value;
     const rating = form.rating.value;
+    const extraGrip = form.extraGrip.value 
+    const hitPaper = form.hitPaper.value
     const processingTime = form.processingTime.value;
     const stockStatus = form.stockStatus.value;
 
@@ -49,6 +55,8 @@ const AddEquipment = () => {
       price,
       description,
       rating,
+      extraGrip,
+      hitPaper,
       processingTime,
       stockStatus
     );
@@ -60,6 +68,8 @@ const AddEquipment = () => {
       price,
       description,
       rating,
+      extraGrip,
+      hitPaper,
       processingTime,
       stockStatus,
     };
@@ -74,6 +84,25 @@ const AddEquipment = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("equimment data paisi", data);
+        setAvailableQuantity(availableQuantity - 1)
+        //Sweet alert 
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, Add it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Success!",
+              text: "Product added to database.",
+              icon: "success"
+            });
+          }
+        });
       });
   };
 
@@ -104,30 +133,6 @@ const AddEquipment = () => {
               />
             </div>
 
-            {/* Item Name */}
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">
-                Item Name
-              </label>
-             <select 
-             value={selectedItem}
-             onChange={handleItem}
-             className="border p-2 w-full"
-             name="" 
-             id="">
-              <option value='' disabled>
-                select Item
-              </option>
-              {selectedCategory && 
-               categoryItems[selectedCategory].map(item => (
-                 <option
-                 key={item}
-                 value={item}
-                 >{item}</option>
-               ))}
-             </select>
-            </div>
-
             {/* Category Name */}
             <div>
               <label className="block text-gray-700 font-medium mb-2">
@@ -151,6 +156,30 @@ const AddEquipment = () => {
                   </option>
                 ))}
               </select>
+            </div>
+               
+                         {/* Item Name */}
+                        <div>
+              <label className="block text-gray-700 font-medium mb-2">
+                Item Name
+              </label>
+             <select 
+             value={selectedItem}
+             onChange={handleItem}
+             className="border p-2 w-full"
+             name="itemName" 
+             id="">
+              <option value='' disabled>
+                select Item
+              </option>
+              {selectedCategory && 
+               categoryItems[selectedCategory].map(item => (
+                 <option
+                 key={item}
+                 value={item}
+                 >{item}</option>
+               ))}
+             </select>
             </div>
 
             {/* Price */}
@@ -208,11 +237,17 @@ const AddEquipment = () => {
               </label>
               <div className="flex items-center space-x-4">
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" name="extraGrip" />
+                  <input 
+                  value={gripIsChecked}
+                  onChange={(e) => setGripIsChecked(e.target.checked)}
+                  type="checkbox" name="extraGrip" />
                   <span>Extra Grip</span>
                 </label>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" name="hitPaper" />
+                  <input 
+                  value={hitPaperIsChecked}
+                  onChange={(e) => setHitPaperIsChecked(e.target.checked)}
+                  type="checkbox" name="hitPaper" />
                   <span>Hit Paper</span>
                 </label>
               </div>
@@ -226,6 +261,7 @@ const AddEquipment = () => {
               <input
                 type="number"
                 name="stockStatus"
+                value={availableQuantity}
                 placeholder="Enter available quantity"
                 readOnly
                 required
