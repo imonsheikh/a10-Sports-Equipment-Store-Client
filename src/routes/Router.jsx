@@ -25,7 +25,9 @@ export const router = createBrowserRouter([
         },
         {
             path: '/allEquipments',
-            element: <PrivateRoute><AllEquipment></AllEquipment></PrivateRoute>
+            element: <PrivateRoute><AllEquipment></AllEquipment></PrivateRoute>,
+            loader: () => fetch('http://localhost:5050/allEquipments')
+
         },
         {
             path: '/addEquipment',

@@ -9,6 +9,8 @@ const AddEquipment = () => {
   const [availableQuantity,setAvailableQuantity] = useState(1000)
   const [gripIsChecked, setGripIsChecked] = useState(false)
   const [hitPaperIsChecked, setHitPaperIsChecked] = useState(false)
+  console.log(gripIsChecked, hitPaperIsChecked);
+  
 
   const categoryItems = {
     Cricket: ["Cricket Bat", "Cricket Ball", "Leg Pads", "Batting Helmet"],
