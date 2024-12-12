@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const EquipmentList = () => {
 
@@ -26,7 +26,7 @@ const EquipmentList = () => {
                 {equipment?.description}</p>
               <div className="space-x-4 bg-gray-100 py-4 text-center">
                 <button className="inline-block rounded-md bg-red-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">Delete</button>
-                <button className="inline-block rounded-md bg-green-500 px-4 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Update</button>
+                <Link to={`/update/${equipment?._id}`} className="inline-block rounded-md bg-green-500 px-4 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Update</Link>
               </div>
             </div>
           </div>
