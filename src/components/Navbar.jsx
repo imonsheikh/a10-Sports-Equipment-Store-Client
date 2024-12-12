@@ -12,9 +12,9 @@ const Navbar = () => {
 
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/allEquipments'>All Equipment</NavLink></li>
     <li><NavLink to='/addEquipment'>Add Equipment</NavLink></li>
-    <li><NavLink to='/extra'>expra</NavLink></li>
+    <li><NavLink to='/allEquipments'>All Equipment</NavLink></li>
+    <li><NavLink to='/equipmentList'>Equipment List</NavLink></li>
    </>
 
     return (

@@ -11,6 +11,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ProductDetails from "../pages/ProductDetails";
+import EquipmentList from "../pages/EquipmentList";
 
   
 export const router = createBrowserRouter([
@@ -35,6 +36,11 @@ export const router = createBrowserRouter([
             element: <PrivateRoute><AddEquipment></AddEquipment></PrivateRoute>
         },
         {
+          path: '/equipmentList',
+          element: <PrivateRoute><EquipmentList></EquipmentList></PrivateRoute>,
+          loader: () => fetch('http://localhost:5050/allEquipments')
+        },
+        {
           path: '/login',
           element: <Login></Login>
         },
@@ -44,7 +50,7 @@ export const router = createBrowserRouter([
         },
         {
           path: '/productDetails/:id',
-          element: <ProductDetails></ProductDetails>,
+          element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5050/productDetails/${params.id}`)
         }
       ]
