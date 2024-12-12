@@ -50,18 +50,18 @@ const AddEquipment = () => {
     const processingTime = form.processingTime.value;
     const stockStatus = form.stockStatus.value;
 
-    console.log(
-      image,
-      itemName,
-      categoryName,
-      price,
-      description,
-      rating,
-      extraGrip,
-      hitPaper,
-      processingTime,
-      stockStatus
-    );
+    // console.log(
+    //   image,
+    //   itemName,
+    //   categoryName,
+    //   price,
+    //   description,
+    //   rating,
+    //   extraGrip,
+    //   hitPaper,
+    //   processingTime,
+    //   stockStatus
+    // );
 
     const equipInfo = {
       image,
@@ -75,7 +75,8 @@ const AddEquipment = () => {
       processingTime,
       stockStatus,
     };
-
+   
+    console.log(equipInfo)
     fetch("http://localhost:5050/allEquipments", {
       method: "POST",
       headers: {

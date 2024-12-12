@@ -22,7 +22,7 @@ const TdStyle = {
             <div className='w-full '>
               <div className='max-w-full overflow-x-auto'>
                 <table className='w-full table-auto'>
-                  <thead className='text-center bg-primary'>
+                  <thead className='text-center bg-slate-600'>
                     <tr>
                       <th className={TdStyle.ThStyle}> Item No: </th>
                       <th className={TdStyle.ThStyle}> Item Name: </th>
@@ -39,7 +39,7 @@ const TdStyle = {
                       <td className={TdStyle.TdStyle}>{equipment?.categoryName}</td>
                       <td className={TdStyle.TdStyle2}>{equipment?.price}</td>
                       <td className={TdStyle.TdStyle2}>
-                        <Link to='' className={TdStyle.TdButton}>
+                        <Link to={`/productDetails/${equipment?._id}`} className={TdStyle.TdButton}>
                           View Details
                         </Link>
                       </td>

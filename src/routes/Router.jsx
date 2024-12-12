@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import ProductDetails from "../pages/ProductDetails";
 
   
 export const router = createBrowserRouter([
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/productDetails/:id',
+          element: <ProductDetails></ProductDetails>,
+          loader: ({params}) => fetch(`http://localhost:5050/productDetails/${params.id}`)
         }
       ]
     },
