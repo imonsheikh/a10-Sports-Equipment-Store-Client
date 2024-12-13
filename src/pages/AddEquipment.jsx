@@ -265,9 +265,8 @@ const AddEquipment = () => {
               <input
                 type="number"
                 name="stockStatus"
-                value={availableQuantity}
+                // value={availableQuantity}
                 placeholder="Enter available quantity"
-                readOnly
                 required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
               />

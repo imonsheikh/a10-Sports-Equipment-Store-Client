@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const loadedSingleData = useLoaderData();
@@ -91,38 +92,37 @@ const UpdateProduct = () => {
       processingTime,
       stockStatus,
     };
-
     console.log(equipInfo);
-    fetch(`http://localhost:5050/update/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(equipInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("equimment data paisi", data);
 
-        //Sweet alert
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, Add it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
+    //Sweet alert
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5050/update/${_id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(equipInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("product update hoiche", data);
             Swal.fire({
               title: "Success!",
               text: "Product Updated to database.",
               icon: "success",
             });
-          }
-        });
-      });
+          });
+      }
+    });
   };
 
   return (
@@ -160,10 +160,11 @@ const UpdateProduct = () => {
               </label>
               <select
                 value={selectedCategory}
-                defaultValue={selectedCategory}
+                // defaultValue={categoryName}
                 onChange={handleCategory}
                 name="categoryName"
                 className="border p-2 w-full"
+                required
               >
                 <option value="" disabled>
                   Select Category
@@ -186,10 +187,12 @@ const UpdateProduct = () => {
               </label>
               <select
                 value={selectedItem}
+                defaultValue={itemName}
                 onChange={handleItem}
                 className="border p-2 w-full"
                 name="itemName"
                 id=""
+                required
               >
                 <option value="" disabled>
                   select Item
@@ -275,6 +278,7 @@ const UpdateProduct = () => {
                     onChange={(e) => setHitPaperIsChecked(e.target.checked)}
                     type="checkbox"
                     name="hitPaper"
+                    // defaultChecked
                   />
                   <span>Hit Paper</span>
                 </label>
@@ -289,10 +293,9 @@ const UpdateProduct = () => {
               <input
                 type="number"
                 name="stockStatus"
-                value={availableQuantity}
-                defaultValue={availableQuantity}
+                // value={availableQuantity}
+                defaultValue={stockStatus}
                 placeholder="Enter available quantity"
-                readOnly
                 required
                 className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400"
               />
@@ -351,7 +354,7 @@ const UpdateProduct = () => {
               type="submit"
               className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300"
             >
-              Update 
+              Update
             </button>
           </div>
         </form>
