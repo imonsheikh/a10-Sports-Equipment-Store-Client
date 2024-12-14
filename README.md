@@ -1,4 +1,4 @@
-## website Name: **sports King**
+**website Name**: **sportsKing**
 
 
 
