@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo2.png'
 import { AuthContext } from '../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
+import DarkMode from './DarkMode';
 
 const Navbar = () => {
 
@@ -13,12 +14,12 @@ const Navbar = () => {
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/addEquipment'>Add Equipment</NavLink></li>
-    <li><NavLink to='/allEquipments'>All Equipment</NavLink></li>
+    <li><NavLink to='/allEquipments'>All Sports Equipment</NavLink></li>
     <li><NavLink to='/equipmentList'>Equipment List</NavLink></li>
    </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-indigo-300 text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,7 +43,7 @@ const Navbar = () => {
             </ul>
           </div>
           <img className='w-12 h-12 border-4 p-1 rounded-full border-sky-500' src={logo} alt="" />
-          <a className="btn btn-ghost text-2xl font-bold">Sports King</a>
+          <a className="btn btn-ghost md:text-2xl font-bold">Sports King</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -50,12 +51,13 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <DarkMode></DarkMode>
           {
             user?
             (   
                 <div className='flex gap-4'>
                  {user?.photoURL?  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <FaUserCircle className='' />}
-                  <Link onClick={handleLogout} className='btn btn-success text-white'>Logout</Link>
+                  <Link onClick={handleLogout} className='btn md:btn-md btn-sm btn-success text-white'>Logout</Link>
                 </div>
             ) : 
             (

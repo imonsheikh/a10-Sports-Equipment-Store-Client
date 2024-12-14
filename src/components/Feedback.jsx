@@ -1,12 +1,14 @@
 import React from 'react';
+import LottieReact1 from './LottieReact1';
 
 const Feedback = () => {
     return (
         <div>
 <section>
-	<div className="bg-slate-700 text-white py-20 rounded-xl">
-		<div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
-			<div className="flex flex-col w-full lg:w-1/3 p-8">
+	<div className="bg-slate-700 text-white py-20 rounded-xl flex items-center justify-between">
+		<LottieReact1></LottieReact1>
+		<div className="container border mx-auto flex flex-col items-center my-6 md:my-24">
+			<div className="flex flex-col w-full  p-8">
 				<p className="ml-6 text-yellow-300 text-lg uppercase tracking-loose">REVIEW</p>
 				<p className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
 				<p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">

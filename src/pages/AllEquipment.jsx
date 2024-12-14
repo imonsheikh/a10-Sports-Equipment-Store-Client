@@ -13,10 +13,31 @@ const TdStyle = {
     TdStyle2: `text-dark border-b border-[#E8E8E8] bg-white dark:border-dark dark:bg-dark-2 dark:text-dark-7 md:py-5 py-2 md:px-2 px-1 text-center md:text-base text-sm font-medium`,
     TdButton: `inline-block md:px-6 md:py-2.5 px-1 py-1 border rounded-md border-primary text-primary hover:bg-primary hover:text-white md:font-medium font-md text-xs md:text-lg`,
   }
+
+  const handleSortingAsc = () => {
+    const sortAsc = equipments.sort((a, b) => a.price-b.price)
+    console.log('clicked');
+    setEquipments([...sortAsc])
+    // console.log(sort); 
+  }
+  const handleSortingDsc = () => {
+    const sortDsc = equipments.sort((a, b) => b.price-a.price)
+    console.log('clicked');
+    setEquipments([...sortDsc])
+    // console.log(sort); 
+  }
   
 
     return (
-        <section className='bg-white dark:bg-dark py-20 lg:py-[120px]'>
+        <section className='bg-white dark:bg-dark py-20 lg:py-[60px]'>
+        <div className='flex gap-7'>
+        <button 
+          onClick={handleSortingAsc}
+          className='flex btn btn-md md:px-8 mb-4 btn-primary text-white md:text-xl'>sort(Ascending)</button>
+          <button 
+          onClick={handleSortingDsc}
+          className='flex btn btn-md px-8 mb-4 btn-primary text-white md:text-xl'>sort(Descending)</button>
+        </div>
         <div className='container'>
           <div className='flex flex-wrap -mx-4'>
             <div className='w-full '>
