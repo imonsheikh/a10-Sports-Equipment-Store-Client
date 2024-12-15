@@ -5,7 +5,7 @@
 ## Features: 
 
 - CRUD Operations
-- Dark & Lignt Mode
+- Dark & Light Mode
 - Login & Register
 - Sorting by price
 - Private Routing 

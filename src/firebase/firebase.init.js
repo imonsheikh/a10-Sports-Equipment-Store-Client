@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBMlhLsnfrxw8ySqCcidr2obq8Rtie6KlQ",
-  authDomain: "sports-king-5c148.firebaseapp.com",
-  projectId: "sports-king-5c148",
-  storageBucket: "sports-king-5c148.firebasestorage.app",
-  messagingSenderId: "525732497655",
-  appId: "1:525732497655:web:9fb88a1caae53719ab2bf2"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
