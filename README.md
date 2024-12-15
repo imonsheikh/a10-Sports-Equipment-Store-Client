@@ -1,5 +1,14 @@
-# **website Name**: sportsKing
+**website Name**: Sports King
 
+**LiveSite Link: **
+
+##Features: 
+
+- CRUD Operations
+- Dark & Lignt Mode
+- Login & Register
+- Sorting by price
+- Private Routing 
 
 
 # React + Vite
