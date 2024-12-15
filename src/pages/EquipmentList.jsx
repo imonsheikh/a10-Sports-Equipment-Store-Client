@@ -23,7 +23,7 @@ const EquipmentList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // console.log("Delete confirmed");
-        fetch(`http://localhost:5050/allEquipments/${id}`,{
+        fetch(`https://sports-equipments-store-server-v2.vercel.app/allEquipments/${id}`,{
             method: 'DELETE'
         })
           .then((res) => res.json())

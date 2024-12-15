@@ -17,7 +17,7 @@ const DarkMode = () => {
         }
     }
     return (
-        <div className='mr-5'>
+        <div className='md:mr-5 mr-1 '>
             <input
   onChange={toggleTheme}          
   type="checkbox"

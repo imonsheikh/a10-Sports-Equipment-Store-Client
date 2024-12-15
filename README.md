@@ -1,8 +1,8 @@
 **website Name**: Sports King
 
-**LiveSite Link: **
+**LiveSite Link:** [https://sports-king-5c148.web.app/](https://sports-king-5c148.web.app/)
 
-##Features: 
+## Features: 
 
 - CRUD Operations
 - Dark & Lignt Mode

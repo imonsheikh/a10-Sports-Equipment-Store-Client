@@ -9,6 +9,8 @@ const Navbar = () => {
 
     const {user, handleLogout} = useContext(AuthContext)
     console.log(user);
+
+    const profile = user?.email?.charAt(0).toUpperCase() 
     
 
     const links = <>
@@ -21,7 +23,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-indigo-300 text-white">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              className="menu menu-sm dropdown-content bg-indigo-400 rounded-box z-[10] mt-3 w-52 p-2 shadow">
              {links}
             </ul>
           </div>
@@ -55,15 +57,15 @@ const Navbar = () => {
           {
             user?
             (   
-                <div className='flex gap-4'>
-                 {user?.photoURL?  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <FaUserCircle className='' />}
+                <div className='flex gap-4 items-center'>
+                 {user?.photoURL?  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <p className='w-14 h-14 rounded-full bg-red-700 border-4 border-blue-500 items-center flex justify-center text-xl'>{profile}</p>}
                   <Link onClick={handleLogout} className='btn md:btn-md btn-sm btn-success text-white'>Logout</Link>
                 </div>
             ) : 
             (
-              <div>
-                <Link to='/register' className="btn bg-green-400 text-white">Register</Link>
-                <Link to='/login' className="btn btn-primary">Login</Link>
+              <div className='flex gap-2 items-center justify-center'>
+                <Link to='/register' className="btn md:btn-md btn-sm bg-green-400 text-white">Register</Link>
+                <Link to='/login' className="btn md:btn-md btn-sm btn-primary items-center">Login</Link>
               </div>
             )
           }

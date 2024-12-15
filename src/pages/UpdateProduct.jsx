@@ -105,7 +105,7 @@ const UpdateProduct = () => {
       confirmButtonText: "Yes, Update it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5050/update/${_id}`, {
+        fetch(`https://sports-equipments-store-server-v2.vercel.app/update/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

@@ -24,12 +24,12 @@ export const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5050/allEquipments')
+            loader: () => fetch('https://sports-equipments-store-server-v2.vercel.app/allEquipments')
         },
         {
             path: '/allEquipments',
             element: <PrivateRoute><AllEquipment></AllEquipment></PrivateRoute>,
-            loader: () => fetch('http://localhost:5050/allEquipments')
+            loader: () => fetch('https://sports-equipments-store-server-v2.vercel.app/allEquipments')
 
         },
         {
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         {
           path: '/equipmentList',
           element: <PrivateRoute><EquipmentList></EquipmentList></PrivateRoute>,
-          loader: () => fetch('http://localhost:5050/allEquipments')
+          loader: () => fetch('https://sports-equipments-store-server-v2.vercel.app/allEquipments')
         },
         {
           path: '/login',
@@ -52,12 +52,12 @@ export const router = createBrowserRouter([
         {
           path: '/productDetails/:id',
           element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5050/productDetails/${params.id}`)
+          loader: ({params}) => fetch(`https://sports-equipments-store-server-v2.vercel.app/productDetails/${params.id}`)
         },
         {
           path: '/update/:id',
           element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5050/update/${params.id}`)
+          loader: ({params}) => fetch(`https://sports-equipments-store-server-v2.vercel.app/update/${params.id}`)
 
 
         }
