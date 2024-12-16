@@ -3,7 +3,7 @@ import React from 'react';
 const Pricing = () => {
     return (
 <div>
-<div className='text-center md:text-4xl'>
+<div className='text-center md:text-4xl '>
         <h1 className="bg-clip-text md:text-4xl text-2xl text-transparent bg-gradient-to-r from-indigo-500 to-teal-500  font-black">
           Services
         </h1>
@@ -13,7 +13,7 @@ const Pricing = () => {
         <li className="p-6 shadow-xl rounded-xl ring-1 ring-black/5 shadow-black/10">
             <h3 className="font-bold tracking-tight text-violet-600">Starter</h3>
             <p className="mt-6 text-4xl font-bold tracking-tighter">$5</p>
-            <p className="mt-3 text-black/60">
+            <p className="mt-3 ">
                 For small businesses that want to automate their link previews and start growing.
             </p>
     
@@ -54,7 +54,7 @@ const Pricing = () => {
         <li className="p-6 shadow-xl rounded-xl ring-1 ring-black/5 shadow-black/10">
             <h3 className="font-bold tracking-tight text-violet-600">Pro</h3>
             <p className="mt-6 text-4xl font-bold tracking-tighter">$14</p>
-            <p className="mt-3 text-black/60">
+            <p className="mt-3 ">
                 For professional businesses that require automation for scaling their link previews.
             </p>
     
@@ -95,7 +95,7 @@ const Pricing = () => {
         <li className="p-6 shadow-xl rounded-xl ring-1 ring-black/5 shadow-black/10">
             <h3 className="font-bold tracking-tight text-violet-600">Business</h3>
             <p className="mt-6 text-4xl font-bold tracking-tighter">$29</p>
-            <p className="mt-3 text-black/60">
+            <p className="mt-3 ">
                 For large organizations that require high volume automation for their link previews.
             </p>
     
