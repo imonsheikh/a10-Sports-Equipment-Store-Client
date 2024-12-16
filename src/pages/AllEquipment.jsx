@@ -29,7 +29,7 @@ const TdStyle = {
   
 
     return (
-        <section className='bg-white dark:bg-dark py-20 lg:py-[60px]'>
+        <section className='bg-white dark:bg-dark py-20 lg:py-[60px] '>
         <div className='flex gap-7'>
         <button 
           onClick={handleSortingAsc}
@@ -39,7 +39,7 @@ const TdStyle = {
           className='flex btn btn-md px-8 mb-4 btn-primary text-white md:text-xl'>sort(Descending)</button>
         </div>
         <div className='container'>
-          <div className='flex flex-wrap -mx-4'>
+          <div className='flex flex-wrap mx-4'>
             <div className='w-full '>
               <div className='max-w-full overflow-x-auto'>
                 <table className='w-full table-auto'>
