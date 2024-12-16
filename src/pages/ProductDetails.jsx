@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
   const singleLoadedData = useLoaderData();
-  console.log(singleLoadedData);
+  // console.log(singleLoadedData);
   const {
     _id,
     image,

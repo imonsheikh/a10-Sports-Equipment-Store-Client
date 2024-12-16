@@ -9,7 +9,7 @@ const EquipmentList = () => {
     const [equipments,setEquipments] = useState(loadedEquipments)
 
     const handleDelete = (id) => {
-      console.log('dd', id);
+      // console.log('dd', id);
       
           //sweet alert
     Swal.fire({

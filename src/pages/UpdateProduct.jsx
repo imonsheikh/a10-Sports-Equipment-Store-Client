@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const loadedSingleData = useLoaderData();
-  console.log(loadedSingleData);
+  // console.log(loadedSingleData);
   const {
     _id,
     image,
@@ -27,7 +27,7 @@ const UpdateProduct = () => {
   const [availableQuantity, setAvailableQuantity] = useState(0);
   const [gripIsChecked, setGripIsChecked] = useState(false);
   const [hitPaperIsChecked, setHitPaperIsChecked] = useState(false);
-  console.log(gripIsChecked, hitPaperIsChecked);
+  // console.log(gripIsChecked, hitPaperIsChecked);
 
   const categoryItems = {
     Cricket: ["Cricket Bat", "Cricket Ball", "Leg Pads", "Batting Helmet"],
@@ -92,7 +92,7 @@ const UpdateProduct = () => {
       processingTime,
       stockStatus,
     };
-    console.log(equipInfo);
+    // console.log(equipInfo);
 
     //Sweet alert
     Swal.fire({
@@ -114,7 +114,7 @@ const UpdateProduct = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("product update hoiche", data);
+            // console.log("product update hoiche", data);
             Swal.fire({
               title: "Success!",
               text: "Product Updated to database.",

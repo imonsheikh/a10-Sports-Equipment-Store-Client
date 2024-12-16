@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/allEquipments',
-            element: <PrivateRoute><AllEquipment></AllEquipment></PrivateRoute>,
+            element: <AllEquipment></AllEquipment>,
             loader: () => fetch('https://sports-equipments-store-server-v2.vercel.app/allEquipments')
 
         },

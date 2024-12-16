@@ -21,10 +21,10 @@ const Register = () => {
   const googleLoginHandler = () => {
     handleGoogleLogin()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   };
 
@@ -39,7 +39,7 @@ const Register = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    console.log(fullName, email, photoURL, password);
+    // console.log(fullName, email, photoURL, password);
 
     //password validation
     if (password.length < 6) {
@@ -68,7 +68,7 @@ const Register = () => {
         //update url and name
         updateUserProfile({ displayName: fullName, photoURL: photoURL })
           .then(() => {
-            console.log(userReg);
+            // console.log(userReg);
             e.target.reset() 
             Swal.fire({
                 icon: "success",
@@ -80,11 +80,11 @@ const Register = () => {
           .catch((err) => {
             const errorCode = err.code;
             const errorMessage = err.message;
-            console.log("ERROR in profile", errorCode, errorMessage);
+            // console.log("ERROR in profile", errorCode, errorMessage);
           });
       })
       .catch((err) => {
-        console.log("ERROR in REG:", err);
+        // console.log("ERROR in REG:", err);
       });
 
   };

@@ -5,19 +5,23 @@ import { AuthContext } from '../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 import DarkMode from './DarkMode';
 
+import { Tooltip as ReactTooltip} from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+
+
 const Navbar = () => {
 
     const {user, handleLogout} = useContext(AuthContext)
-    console.log(user);
+    // console.log(user);
 
     const profile = user?.email?.charAt(0).toUpperCase() 
     
 
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/addEquipment'>Add Equipment</NavLink></li>
     <li><NavLink to='/allEquipments'>All Sports Equipment</NavLink></li>
-    <li><NavLink to='/equipmentList'>Equipment List</NavLink></li>
+    <li><NavLink to='/addEquipment'>Add Equipment</NavLink></li>
+    <li><NavLink to='/equipmentList'>My Equipment List</NavLink></li>
    </>
 
     return (
@@ -45,7 +49,10 @@ const Navbar = () => {
             </ul>
           </div>
           <img className='w-12 h-12 border-4 p-1 rounded-full border-sky-500' src={logo} alt="" />
-          <a className="btn btn-ghost md:text-2xl font-bold">Sports King</a>
+          <a className="btn btn-ghost md:text-xl font-bold"
+         
+  >Sports King</a>
+     
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -58,7 +65,19 @@ const Navbar = () => {
             user?
             (   
                 <div className='flex gap-4 items-center'>
-                 {user?.photoURL?  <img className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <p className='w-14 h-14 rounded-full bg-red-700 border-4 border-blue-500 items-center flex justify-center text-xl'>{profile}</p>}
+            
+                 {user?.photoURL?  <img 
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-variant='info'
+                  data-tooltip-content={user?.displayName}
+                  // data-tooltip-html="<img>{user?.photoURL}</img>"
+                  data-tooltip-place="bottom" 
+                 className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <p className='w-14 h-14 rounded-full bg-red-700 border-4 border-blue-500 items-center flex justify-center text-xl'>{profile}</p>
+                 
+                 }
+                    <ReactTooltip
+                  id='my-tooltip'
+                  ></ReactTooltip>
                   <Link onClick={handleLogout} className='btn md:btn-md btn-sm btn-success text-white'>Logout</Link>
                 </div>
             ) : 

@@ -10,7 +10,7 @@ const AddEquipment = () => {
   const [availableQuantity,setAvailableQuantity] = useState(0)
   const [gripIsChecked, setGripIsChecked] = useState(false)
   const [hitPaperIsChecked, setHitPaperIsChecked] = useState(false)
-  console.log(gripIsChecked, hitPaperIsChecked);
+  // console.log(gripIsChecked, hitPaperIsChecked);
   
 
   const categoryItems = {
@@ -77,7 +77,7 @@ const AddEquipment = () => {
       stockStatus,
     };
    
-    console.log(equipInfo)
+    // console.log(equipInfo)
     fetch("https://sports-equipments-store-server-v2.vercel.app/allEquipments", {
       method: "POST",
       headers: {
@@ -87,7 +87,7 @@ const AddEquipment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("equimment data paisi", data);
+        // console.log("equimment data paisi", data);
         // setAvailableQuantity(availableQuantity - 1)
         //Sweet alert 
         Swal.fire({

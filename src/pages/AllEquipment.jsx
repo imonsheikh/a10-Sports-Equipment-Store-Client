@@ -16,13 +16,13 @@ const TdStyle = {
 
   const handleSortingAsc = () => {
     const sortAsc = equipments.sort((a, b) => a.price-b.price)
-    console.log('clicked');
+    // console.log('clicked');
     setEquipments([...sortAsc])
     // console.log(sort); 
   }
   const handleSortingDsc = () => {
     const sortDsc = equipments.sort((a, b) => b.price-a.price)
-    console.log('clicked');
+    // console.log('clicked');
     setEquipments([...sortDsc])
     // console.log(sort); 
   }

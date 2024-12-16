@@ -6,10 +6,10 @@ const Products = ({products}) => {
   return (
     <div className="my-16">
       <div>
-        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 text-5xl font-black">
+        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 md:text-4xl text-2xl font-black">
           Products
         </h1>
-        <p>The precise definition of what differentiates a sport from other leisure activities varies between sources. </p>
+        <p>A sport from other leisure activities varies between sources. </p>
       </div>
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">

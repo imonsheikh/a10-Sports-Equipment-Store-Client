@@ -8,14 +8,14 @@ const Footer = () => {
   <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <div className='flex items-center'>
+        <div className='flex items-center justify-center'>
         <img src={logo} className="mr-5 h-6 sm:h-9" alt="logo" />
         <h1 className='font-bold text-lg'>Sports King</h1>
         </div>
-        <p className="max-w-xs mt-4 text-sm text-gray-600">
+        <p className="max-w-xs mt-4 text-sm text-gray-600  border mx-auto">
         All these leagues enjoy wide-ranging domestic media coverage and, except for Major League Soccer
         </p>
-        <div className="flex mt-8 space-x-6 text-gray-600">
+        <div className="flex mt-8 space-x-6 text-gray-600 mx-auto border justify-center">
           <a className="hover:opacity-75"  target="_blank" rel="noreferrer">
             <span className="sr-only"> Facebook </span>
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -95,7 +95,7 @@ const Footer = () => {
       </div>
     </div>
     <p className="mt-8 text-xs text-gray-800">
-      © 2022 Comany Name
+      © 2022 Sports King
     </p>
   </div>
 </footer>
