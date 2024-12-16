@@ -11,14 +11,14 @@ import { GiCricket, GiCricketBat } from 'react-icons/gi';
 const ProductCategories = () => {
     return (
         <div className='text-stone-00'> 
-                  <div className='mt-10'>
-        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 md:text-4xl text-2xl font-black">
+                  <div className='mt-10 text-center'>
+        <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 md:text-4xl text-2xl font-black">
           Products Categories
         </h1>
         <p>The precise definition of what differentiates a sport from other leisure activities varies between sources. </p>
       </div>
 
-      <div className='flex justify-between items-center mt-10 font-bold text-2xl gap-5 flex-wrap'>
+      <div className='flex justify-between items-center mt-10 font-bold text-2xl gap-5 flex-wrap text-center'>
         <NavLink className='border-2 border-blue-300 p-5 rounded-lg space-y-2 flex-1'>
             <SiAircall className='mx-auto w-14 h-14 border rounded-full p-1' />
             <h1>All</h1>

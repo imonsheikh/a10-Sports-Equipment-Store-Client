@@ -47,15 +47,17 @@ const EquipmentList = () => {
 
 
     return (
-        <div className='flex mx-auto justify-between flex-wrap gap-1'>
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-1 my-10'>
 
          {
           equipments.map(equipment => (
             <div
              key={equipment._id}
-            className="md:w-1/3 lg:w-2/12 flex-auto  w-full flex flex-col items-center justify-center  border-2 rounded-xl sm:flex-row   ">
+            className="items-center border-2 rounded-xl    ">
             <div className="w-full  overflow-hidden rounded-lg bg-white shadow-md duration-300 text-start ">
-               <img src={equipment?.image} alt="image" />
+              <div className='h-40'>
+              <img className='w-full h-full' src={equipment?.image} alt="image" />
+              </div>
               <h1 className="mt-2  text-lg font-normal text-gray-500 ml-2">
                 <span className='font-bold mr-1'>Name:</span>
                 {equipment?.itemName}</h1>
@@ -68,8 +70,8 @@ const EquipmentList = () => {
               <div className="space-x-4 bg-gray-100 py-4 text-center">
                 <button 
                 onClick={() => handleDelete(equipment?._id)}
-                className="inline-block rounded-md bg-red-500 px-10 py-2 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400">Delete</button>
-                <Link to={`/update/${equipment?._id}`} className="inline-block rounded-md bg-green-500 px-4 py-2 font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Update</Link>
+                className="inline-block rounded-md bg-red-500 px-4 md:px-8 md:py-2 py-1 font-semibold text-red-100 shadow-md duration-75 hover:bg-red-400 md:text-lg text-sm">Delete</button>
+                <Link to={`/update/${equipment?._id}`} className="inline-block rounded-md bg-green-500 md:px-8 px-4 md:py-2 py-1 md:text-lg text-sm font-semibold text-green-100 shadow-md duration-75 hover:bg-green-400">Update</Link>
               </div>
             </div>
           </div>

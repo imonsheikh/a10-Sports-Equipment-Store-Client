@@ -161,6 +161,7 @@ const UpdateProduct = () => {
               <select
                 value={selectedCategory}
                 // defaultValue={categoryName}
+                // defaultChecked={categoryName}
                 onChange={handleCategory}
                 name="categoryName"
                 className="border p-2 w-full"

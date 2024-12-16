@@ -48,8 +48,8 @@ const Navbar = () => {
              {links}
             </ul>
           </div>
-          <img className='w-12 h-12 border-4 p-1 rounded-full border-sky-500' src={logo} alt="" />
-          <a className="btn btn-ghost md:text-xl font-bold"
+          <img className='md:w-12 md:h-12 w-10 h-10 md:border-4 border p-1 rounded-full border-sky-500' src={logo} alt="" />
+          <a className="md:text-xl text-sm ml-1 font-bold"
          
   >Sports King</a>
      
@@ -64,7 +64,7 @@ const Navbar = () => {
           {
             user?
             (   
-                <div className='flex gap-4 items-center'>
+                <div className='flex md:gap-4 gap-1 items-center'>
             
                  {user?.photoURL?  <img 
                   data-tooltip-id="my-tooltip"
@@ -72,7 +72,7 @@ const Navbar = () => {
                   data-tooltip-content={user?.displayName}
                   // data-tooltip-html="<img>{user?.photoURL}</img>"
                   data-tooltip-place="bottom" 
-                 className='w-14 h-14 rounded-full border-4 border-blue-500' src={user?.photoURL} alt="img" /> : <p className='w-14 h-14 rounded-full bg-red-700 border-4 border-blue-500 items-center flex justify-center text-xl'>{profile}</p>
+                 className='md:w-14 md:h-14 w-10 h-10 rounded-full md:border-4 border-2 border-blue-500' src={user?.photoURL} alt="img" /> : <p className='md:w-14 md:h-14 w-10 h-10 rounded-full bg-red-700 md:border-4 border-2 border-blue-500 items-center flex justify-center text-xl'>{profile}</p>
                  
                  }
                     <ReactTooltip
@@ -83,8 +83,8 @@ const Navbar = () => {
             ) : 
             (
               <div className='flex gap-2 items-center justify-center'>
-                <Link to='/register' className="btn md:btn-md btn-sm bg-green-400 text-white">Register</Link>
-                <Link to='/login' className="btn md:btn-md btn-sm btn-primary items-center">Login</Link>
+                <Link to='/register' className="btn md:btn-md btn-xs bg-green-400 text-white">Register</Link>
+                <Link to='/login' className="btn md:btn-md btn-xs btn-primary items-center">Login</Link>
               </div>
             )
           }

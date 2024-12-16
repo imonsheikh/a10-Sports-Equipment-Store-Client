@@ -3,8 +3,8 @@ import React from 'react';
 const Pricing = () => {
     return (
 <div>
-<div>
-        <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-teal-500 text-5xl font-black">
+<div className='text-center md:text-4xl'>
+        <h1 className="bg-clip-text md:text-4xl text-2xl text-transparent bg-gradient-to-r from-indigo-500 to-teal-500  font-black">
           Services
         </h1>
         <p>The precise definition of what differentiates a sport from other leisure activities varies between sources. </p>
